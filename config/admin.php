@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Laravel-admin name
+    | Laravel-admin name 站点标题
     |--------------------------------------------------------------------------
     |
     | This value is the name of laravel-admin, This setting is displayed on the
@@ -15,7 +15,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Laravel-admin logo
+    | Laravel-admin logo 页面顶部 Logo
     |--------------------------------------------------------------------------
     |
     | The logo of all admin pages. You can also set it as an image by using a
@@ -26,7 +26,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Laravel-admin mini logo
+    | Laravel-admin mini logo 页面顶部小 Logo
     |--------------------------------------------------------------------------
     |
     | The logo of all admin pages when the sidebar menu is collapsed. You can
@@ -38,7 +38,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Laravel-admin route settings
+    | Laravel-admin route settings 路由配置
     |--------------------------------------------------------------------------
     |
     | The routing configuration of the admin page, including the path prefix,
@@ -57,7 +57,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Laravel-admin install directory
+    | Laravel-admin install directory Laravel-Admin 的安装目录
     |--------------------------------------------------------------------------
     |
     | The installation directory of the controller and routing configuration
@@ -69,17 +69,17 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Laravel-admin html title
+    | Laravel-admin html title Laravel-Admin 页面标题
     |--------------------------------------------------------------------------
     |
     | Html title for all pages.
     |
     */
-    'title' => 'Admin',
+    'title' => 'Laravel Shop 管理后台',
 
     /*
     |--------------------------------------------------------------------------
-    | Access via `https`
+    | Access via `https` 是否使用 https
     |--------------------------------------------------------------------------
     |
     | If your page is going to be accessed via https, set it to `true`.
@@ -89,7 +89,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Laravel-admin auth setting
+    | Laravel-admin auth setting Laravel-Admin 用户认证设置
     |--------------------------------------------------------------------------
     |
     | Authentication settings for all admin pages. Include an authentication
@@ -114,7 +114,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Laravel-admin upload setting
+    | Laravel-admin upload setting Laravel-Admin 文件上传设置
     |--------------------------------------------------------------------------
     |
     | File system configuration for form upload files and images, including
@@ -123,7 +123,7 @@ return [
     */
     'upload' => [
 
-        // Disk in `config/filesystem.php`.
+        // Disk in `config/filesystem.php`. // 对应 filesystem.php 中的 disks
         'disk' => 'admin',
 
         // Image and file upload path under the disk above.
@@ -135,7 +135,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Laravel-admin database settings
+    | Laravel-admin database settings Laravel-Admin 数据库设置
     |--------------------------------------------------------------------------
     |
     | Here are database settings for laravel-admin builtin model & tables.
@@ -143,26 +143,26 @@ return [
     */
     'database' => [
 
-        // Database connection for following tables.
+        // Database connection for following tables.// 数据库连接名称，留空即可
         'connection' => '',
 
-        // User tables and model.
+        // User tables and model.// 管理员用户表及模型
         'users_table' => 'admin_users',
         'users_model' => Encore\Admin\Auth\Database\Administrator::class,
 
-        // Role table and model.
+        // Role table and model. // 角色表及模型
         'roles_table' => 'admin_roles',
         'roles_model' => Encore\Admin\Auth\Database\Role::class,
 
-        // Permission table and model.
+        // Permission table and model.// 权限表及模型
         'permissions_table' => 'admin_permissions',
         'permissions_model' => Encore\Admin\Auth\Database\Permission::class,
 
-        // Menu table and model.
+        // Menu table and model.// 菜单表及模型
         'menu_table' => 'admin_menu',
         'menu_model' => Encore\Admin\Auth\Database\Menu::class,
 
-        // Pivot table for table above.
+        // Pivot table for table above.  // 多对多关联中间表
         'operation_log_table'    => 'admin_operation_log',
         'user_permissions_table' => 'admin_user_permissions',
         'role_users_table'       => 'admin_role_users',
@@ -172,7 +172,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | User operation log setting
+    | User operation log setting Laravel-Admin 操作日志设置
     |--------------------------------------------------------------------------
     |
     | By setting this option to open or close operation log in laravel-admin.
@@ -183,7 +183,7 @@ return [
         'enable' => true,
 
         /*
-         * Routes that will not log to database.
+         * Routes that will not log to database. 不记操作日志的路由
          *
          * All method to path like: admin/auth/logs
          * or specific method to path like: get:admin/auth/logs.
@@ -198,8 +198,8 @@ return [
     | Application Skin
     |--------------------------------------------------------------------------
     |
-    | This value is the skin of admin pages.
-    | @see https://adminlte.io/docs/2.4/skin
+    | This value is the skin of admin pages. 页面风格
+    | @see https://adminlte.io/docs/2.4/skin  @see https://adminlte.io/docs/2.4/layout
     |
     | Supported:
     |    "skin-blue", "skin-blue-light", "skin-yellow", "skin-yellow-light",
@@ -235,7 +235,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Version
+    | Version 页面底部展示的版本.
     |--------------------------------------------------------------------------
     |
     | This version number set will appear in the page footer.
@@ -245,7 +245,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Settings for extensions.
+    | Settings for extensions. 扩展设置.
     |--------------------------------------------------------------------------
     |
     | You can find all available extensions here
