@@ -61,7 +61,7 @@ return [
             'visibility' => 'public',
             'url' => env('APP_URL').'/public/upload/',
         ],
-        
+
 
         's3' => [
             'driver' => 's3',
