@@ -14,7 +14,7 @@
 //Route::get('/', 'PagesController@root')->name('root');
 Route::redirect('/', '/products')->name('root');
 Route::get('products', 'ProductsController@index')->name('products.index');
-
+Route::get('products/{product}', 'ProductsController@show')->name('products.show');
 
 
 Auth::routes();
@@ -32,6 +32,9 @@ Route::group(['middleware' => 'auth'], function() {
         Route::get('user_addresses/{user_address}', 'UserAddressesController@edit')->name('user_addresses.edit');
         Route::patch('user_addresses/{user_address}', 'UserAddressesController@update')->name('user_addresses.update');
         Route::delete('user_addresses/{user_address}', 'UserAddressesController@destroy')->name('user_addresses.destroy');
+
+        Route::post('products/{product}/favorite', 'ProductsController@favor')->name('products.favor');
+        Route::delete('products/{product}/favorite', 'ProductsController@disfavor')->name('products.disfavor');
 
     });
     // 结束
