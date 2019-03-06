@@ -35,8 +35,13 @@ Route::group(['middleware' => 'auth'], function() {
         Route::post('products/{product}/favorite', 'ProductsController@favor')->name('products.favor');
         Route::delete('products/{product}/favorite', 'ProductsController@disfavor')->name('products.disfavor');
         Route::get('products/favorites', 'ProductsController@favorites')->name('products.favorites');
+
+
+        Route::post('cart', 'CartController@add')->name('cart.add');
+
+
     });
     // 结束
 });
-Route::get('products/{product}', 'ProductsController@show')->name('products.show')->where(['product' => '[0-9]+']);;
+Route::get('products/{product}', 'ProductsController@show')->name('products.show')->where(['product' => '[0-9]+']);
 
