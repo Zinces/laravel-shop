@@ -9,7 +9,9 @@ use App\Models\Order;
 use App\Models\ProductSku;
 use App\Models\UserAddress;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class OrdersController extends Controller
 {
@@ -62,12 +64,31 @@ class OrdersController extends Controller
             // 将下单的商品从购物车中移除
             $skuIds = collect($items)->pluck('sku_id');
             $user->cartItems()->whereIn('product_sku_id', $skuIds)->delete();
-
+            Log::info($order);
             return $order;
         });
 
         CloseOrder::dispatch($order,config('app.order_ttl'));
-
+        Log::info($order);
         return $order;
     }
+
+    public function index(Request $request)
+    {
+        $orders = Order::query()
+            // 使用 with 方法预加载，避免N + 1问题
+            ->with(['items.product', 'items.productSku'])
+            ->where('user_id', $request->user()->id)
+            ->orderBy('created_at', 'desc')
+            ->paginate();
+
+        return view('orders.index', ['orders' => $orders]);
+    }
+
+    public function show(Order $order, Request $request)
+    {
+        $this->authorize('own',$order);
+        return view('orders.show', ['order' => $order->load(['items.productSku', 'items.product'])]);
+    }
+
 }
