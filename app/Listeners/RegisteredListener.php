@@ -3,7 +3,6 @@
 namespace App\Listeners;
 
 use App\Notifications\EmailVerificationNotification;
-use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
 class RegisteredListener implements ShouldQueue
