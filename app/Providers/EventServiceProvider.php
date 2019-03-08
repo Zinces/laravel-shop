@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Events\OrderPaid;
+use App\Events\OrderReviewed;
 use App\Listeners\RegisteredListener;
+use App\Listeners\UpdateProductRating;
 use App\Listeners\UpdateProductSoldCount;
 use App\Notifications\OrderPaidNotification;
 use Illuminate\Auth\Events\Registered;
@@ -27,6 +29,9 @@ class EventServiceProvider extends ServiceProvider
         OrderPaid::class => [
             UpdateProductSoldCount::class,
             OrderPaidNotification::class
+        ],
+        OrderReviewed::class => [
+            UpdateProductRating::class
         ]
     ];
 
